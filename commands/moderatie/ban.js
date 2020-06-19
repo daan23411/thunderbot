@@ -23,7 +23,7 @@ module.exports = {
       return message.channel.send(
         `Geef een reden op`
       );
-    if (!User.banable)
+    if (message.members.permissions.has("BAN_MEMBERS"))
       return message.channel.send(
         `Je kan deze gebruiker niet bannen, ze hebben waarschijnlijk een hogere of dezelfde rol als mij.`
       );
