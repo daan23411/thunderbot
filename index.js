@@ -9,11 +9,11 @@ const mongoose = require('mongoose')
 bot.commands = new Collection();
 bot.aliases = new Collection();
 bot.categories = fs.readdirSync("./commands/");
-bot.prefix = config.prefix;
 mongoose.connect("mongodb+srv://ThunderBot:OfficialThunderDB@cluster0-hgkzz.mongodb.net/Data?retryWrites=true&w=majority",{
     useUnifiedTopology: true,
     useNewUrlParser: true,
 });
+bot.prefix = config.prefix;
 ["command", "event"].forEach(handler=>{
     require(`./handlers/${handler}`)(bot);
 });
